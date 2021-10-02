@@ -24,6 +24,7 @@ public class Processor implements ItemProcessor<Student, Student> {
 //        Student stud = new Student(firstName, lastName, cgpa, dob);
         //Change this to the previous line
         Student stud = new Student(firstName, lastName, cgpa, 1);
+        
         return stud;
     }
 }
