@@ -1,8 +1,5 @@
-com/miusaatega/batchjob/services/UserService.class
-com/miusaatega/batchjob/services/UserService$1$1.class
-com/miusaatega/batchjob/BatchJobApplication.class
-com/miusaatega/batchjob/security/jwt/JwtUtil.class
-com/miusaatega/batchjob/BatchJobController.class
-com/miusaatega/batchjob/services/UserService$1.class
-com/miusaatega/batchjob/models/Student.class
-com/miusaatega/batchjob/services/BatchJobService.class
+com/miusaatega/batchjob/BatchConfiguration$1.class
+com/miusaatega/batchjob/Student.class
+com/miusaatega/batchjob/BatchjobApplication.class
+com/miusaatega/batchjob/BatchConfiguration.class
+com/miusaatega/batchjob/Processor.class
