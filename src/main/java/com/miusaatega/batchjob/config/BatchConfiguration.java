@@ -1,8 +1,17 @@
-package com.miusaatega.batchjob;
+package com.miusaatega.batchjob.config;
 
+import com.miusaatega.batchjob.models.Student;
+import com.miusaatega.batchjob.services.Processor;
+import com.miusaatega.batchjob.models.StudentDto;
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.launch.support.RunIdIncrementer;
+import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider;
+import org.springframework.batch.item.database.JdbcBatchItemWriter;
+import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
@@ -10,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableBatchProcessing
@@ -22,15 +33,16 @@ public class BatchConfiguration {
     public StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public FlatFileItemReader<Student> reader() {
-        return new FlatFileItemReaderBuilder<Student>()
+    public FlatFileItemReader<StudentDto> reader() {
+        return new FlatFileItemReaderBuilder<StudentDto>()
                 .name("studentFileReader")
                 .resource(new ClassPathResource("myData.csv"))
                 .delimited()
                 .names(new String[]{"firstName", "lastName", "gpa", "age"})
-                .fieldSetMapper(new BeanWrapperFieldSetMapper<Student>()
+                .linesToSkip(1)
+                .fieldSetMapper(new BeanWrapperFieldSetMapper<>()
                 {{
-                    setTargetType(Student.class);
+                    setTargetType(StudentDto.class);
                 }}).build();
     }
 
@@ -39,10 +51,17 @@ public class BatchConfiguration {
         return new Processor();
     }
 
+    @Bean
+    public JdbcBatchItemWriter<Student> writer(DataSource dataSource) {
+        return new JdbcBatchItemWriterBuilder<Student>()
+                .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
+                .sql("INSERT INTO student (firstname, lastname, gpa, dob) VALUES (:firstname, :lastname, :gpa, :dob)")
+                .dataSource(dataSource)
+                .build();
+    }
 
-
-    /*@Bean
-    public Job importUserJob(JobCompletionNotificationListener listener, Step step1) {
+    @Bean
+    public Job importUserJob(JobListener listener, Step step1) {
         return jobBuilderFactory.get("importUserJob")
                 .incrementer(new RunIdIncrementer())
                 .listener(listener)
@@ -54,10 +73,10 @@ public class BatchConfiguration {
     @Bean
     public Step step1(JdbcBatchItemWriter<Student> writer) {
         return stepBuilderFactory.get("step1")
-                .<Student, Student> chunk(10)
+                .<StudentDto, Student> chunk(10)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer)
                 .build();
-    }*/
+    }
 }

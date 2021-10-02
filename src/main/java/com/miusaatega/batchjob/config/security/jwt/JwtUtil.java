@@ -1,4 +1,4 @@
-package com.miusaatega.batchjob.security.jwt;
+package com.miusaatega.batchjob.config.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

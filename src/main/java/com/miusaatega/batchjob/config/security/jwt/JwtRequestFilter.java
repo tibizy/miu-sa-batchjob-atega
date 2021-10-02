@@ -1,4 +1,4 @@
-package com.miusaatega.batchjob.security.jwt;
+package com.miusaatega.batchjob.config.security.jwt;
 
 import com.miusaatega.batchjob.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

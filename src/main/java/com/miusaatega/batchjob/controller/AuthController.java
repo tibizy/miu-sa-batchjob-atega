@@ -1,4 +1,4 @@
-package com.miusaatega.batchjob;
+package com.miusaatega.batchjob.controller;
 
 import com.miusaatega.batchjob.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import com.miusaatega.batchjob.models.AuthenticationRequest;
 import com.miusaatega.batchjob.models.AuthenticationResponse;
-import com.miusaatega.batchjob.security.jwt.JwtUtil;
+import com.miusaatega.batchjob.config.security.jwt.JwtUtil;
+
 @RestController
+@RequestMapping("api/auth")
 class AuthController {
 
     @Autowired
@@ -24,7 +26,7 @@ class AuthController {
     @Autowired
     private UserService userDetailsService;
 
-    @PostMapping("/authenticate")
+    @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
 
         try {

@@ -1,5 +1,6 @@
-package com.miusaatega.batchjob.security.jwt;
+package com.miusaatega.batchjob.config.security;
 
+import com.miusaatega.batchjob.config.security.jwt.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,6 +13,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import javax.servlet.http.HttpServletResponse;
 
 @EnableWebSecurity
 class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -39,11 +42,9 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers("/authenticate").permitAll().
-                antMatchers("/shop").permitAll().
-                antMatchers("/orders").hasAnyAuthority("EMPLOYEE").
-                antMatchers("/payments").hasAnyAuthority("FINANCE").
-                anyRequest().authenticated().and()
+                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/admin/**").hasAnyAuthority("ADMIN")
+                .anyRequest().authenticated().and()
                 .exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
