@@ -1,32 +1,22 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2580
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-
-\f0\fs24 \cf0 FistName,LastName,GPA,AGE\
-Girmay,Asrat,3.9,28\
-Ayodeji,Babatunde,4,31\
-Eden,Ajibade,2.5,25\
-Robert,John,3.0,30\
-Chris,Anderson,4.0,21\
-Boris,Albert,3.40,27\
-Faith,Donald,3.75,23\
-\pard\pardeftab720\partightenfactor0
-
-\f1 \cf2 \expnd0\expndtw0\kerning0
-Tamika,Maginnis,2.5,25\
-Eugena ,Bauch,3.2,30\
-Omega ,Suda,3.3,27\
-Gregg ,Kolodziej,3.6,28\
-Frederica, Fessler,4.0,25\
-Victorina, Hilt,3.9,24\
-Wesley ,Mill,3.5,25\
-Chase, Folks,3.6,35\
-Titus, Cuadra,3.7,37\
-Lois ,Roher,2.0,24\
-Yi ,Bever,2.5,25\
-Gerry ,Deand,2.6,30\
-Dante ,Pettway,2.7,28\
-Lois ,Roher,4.0,27}
+FistName,LastName,GPA,AGE
+Girmay,Asrat,3.9,28
+Ayodeji,Babatunde,4,31
+Eden,Ajibade,2.5,25
+Robert,John,3.0,30
+Chris,Anderson,4.0,21
+Boris,Albert,3.40,27
+Faith,Donald,3.75,23
+Tamika,Maginnis,2.5,25
+Eugena ,Bauch,3.2,30
+Omega ,Suda,3.3,27
+Gregg ,Kolodziej,3.6,28
+Frederica, Fessler,4.0,25
+Victorina, Hilt,3.9,24
+Wesley ,Mill,3.5,25
+Chase, Folks,3.6,35
+Titus, Cuadra,3.7,37
+Lois ,Roher,2.0,24
+Yi ,Bever,2.5,25
+Gerry ,Deand,2.6,30
+Dante ,Pettway,2.7,28
+Lois ,Roher,4.0,27
