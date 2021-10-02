@@ -1,0 +1,9 @@
+/Users/mac/Documents/Workspace/eclipse-workspace-miu/miu-sa-batchjob-atega/src/main/java/com/miusaatega/batchjob/BatchJobApplication.java
+/Users/mac/Documents/Workspace/eclipse-workspace-miu/miu-sa-batchjob-atega/src/main/java/com/miusaatega/batchjob/security/jwt/JwtUtil.java
+/Users/mac/Documents/Workspace/eclipse-workspace-miu/miu-sa-batchjob-atega/src/main/java/com/miusaatega/batchjob/models/Student.java
+/Users/mac/Documents/Workspace/eclipse-workspace-miu/miu-sa-batchjob-atega/src/main/java/com/miusaatega/batchjob/security/jwt/WebSecurityConfig.java
+/Users/mac/Documents/Workspace/eclipse-workspace-miu/miu-sa-batchjob-atega/src/main/java/com/miusaatega/batchjob/respositories/BatchJobRepository.java
+/Users/mac/Documents/Workspace/eclipse-workspace-miu/miu-sa-batchjob-atega/src/main/java/com/miusaatega/batchjob/BatchJobController.java
+/Users/mac/Documents/Workspace/eclipse-workspace-miu/miu-sa-batchjob-atega/src/main/java/com/miusaatega/batchjob/services/UserService.java
+/Users/mac/Documents/Workspace/eclipse-workspace-miu/miu-sa-batchjob-atega/src/main/java/com/miusaatega/batchjob/services/BatchJobService.java
+/Users/mac/Documents/Workspace/eclipse-workspace-miu/miu-sa-batchjob-atega/src/main/java/com/miusaatega/batchjob/security/jwt/JwtRequestFilter.java
