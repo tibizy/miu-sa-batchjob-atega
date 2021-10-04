@@ -9,6 +9,7 @@ import org.springframework.batch.core.listener.JobExecutionListenerSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class JobListener extends JobExecutionListenerSupport {
@@ -26,10 +27,11 @@ public class JobListener extends JobExecutionListenerSupport {
     }
 
     @Override
+    @Transactional
     public void beforeJob(JobExecution jobExecution) {
         log.info("!!! JOB STARTED! Clear Database entries");
 
-        studentRepository.deleteAll();
+        studentRepository.truncateMyTable();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.springsecurity.config;
+package com.miusaatega.batchjob.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -38,8 +38,8 @@ public class SwaggerConfig {
                 )
                 .info(
                         new Info()
-                                .title("JWT Auth Rest Api")
-                                .description("Rest Api for JWT authentication")
+                                .title("SA Mini Project 1")
+                                .description("Rest Api for SA Mini Project 1")
                                 .version("1.0")
                 );
     }

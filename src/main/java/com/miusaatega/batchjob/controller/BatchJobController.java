@@ -3,6 +3,7 @@ package com.miusaatega.batchjob.controller;
 import com.miusaatega.batchjob.models.Student;
 import com.miusaatega.batchjob.repository.StudentRepository;
 import com.miusaatega.batchjob.services.BatchJobService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.batch.core.JobParametersInvalidException;
 import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
 import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
@@ -21,6 +22,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/admin")
 @RolesAllowed("ADMIN")
+@Tag(name = "Admin")
 public class BatchJobController {
 
     @Autowired

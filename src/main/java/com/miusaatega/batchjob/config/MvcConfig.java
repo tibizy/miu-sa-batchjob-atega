@@ -1,4 +1,4 @@
-package com.example.springsecurity.config;
+package com.miusaatega.batchjob.config;
 
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;

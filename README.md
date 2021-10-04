@@ -18,6 +18,10 @@ MIU-SA Mini Project 1 October 2021
 * **start**: docker-compose up
 * **stop**: docker-compose down
 
+### REST Api docs
+* make sure app is running
+* [Swagger Docs](http://localhost:8080/swagger-ui/index.html?configUrl=/rest-api-docs/swagger-config)
+
 ### Endpoints
  * Open POSTMAN
    * Click on "import" tab on the upper left side.

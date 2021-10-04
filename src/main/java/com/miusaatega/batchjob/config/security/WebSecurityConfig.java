@@ -2,6 +2,7 @@ package com.miusaatega.batchjob.config.security;
 
 import com.miusaatega.batchjob.config.security.jwt.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -16,12 +17,19 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import javax.servlet.http.HttpServletResponse;
 
+import static java.lang.String.format;
+
 @EnableWebSecurity
 class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService myUserDetailsService;
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
+    @Value("${springdoc.api-docs.path}")
+    private String restApiDocPath;
+    @Value("${springdoc.swagger-ui.path}")
+    private String swaggerPath;
+
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -42,7 +50,13 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
+                .authorizeRequests()
+                // Swagger endpoints must be publicly accessible
+                .antMatchers("/").permitAll()
+                .antMatchers(format("%s/**", restApiDocPath)).permitAll()
+                .antMatchers(format("%s/**", swaggerPath)).permitAll()
+                //endpoints
+                .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/admin/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated().and()
                 .exceptionHandling().and().sessionManagement()
